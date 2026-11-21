@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <!-- Decorative "records desk" behind the hero magnifier. Flat AADS palette, no text. -->
+  <g opacity=".55" stroke="#D9DFEF" stroke-width="1">
+    <path d="M0 150H1200M0 300H1200M0 450H1200M0 600H1200M0 750H1200M150 0V900M300 0V900M450 0V900M600 0V900M750 0V900M900 0V900M1050 0V900"/>
+  </g>
+  <!-- parcel map sheet -->
+  <g transform="translate(610 70) rotate(5)">
+    <rect width="470" height="360" rx="14" fill="#fff" stroke="#C2CBE4" stroke-width="2"/>
+    <rect x="24" y="24" width="422" height="312" rx="8" fill="#F1F4FD"/>
+    <path d="M24 140H446M24 238H446M150 24V336M300 24V336" stroke="#fff" stroke-width="14"/>
+    <path d="M40 40h96v86H40zM166 40h120v86H166zM316 40h114v86H316zM40 156h96v68H40zM316 156h114v68H316zM40 254h96v66H40zM166 254h120v66H166zM316 254h114v66H316z" fill="#E1E7FA" stroke="#C2CBE4" stroke-width="2"/>
+    <path d="M166 156h120v68H166z" fill="#FBE4EA" stroke="#D21E47" stroke-width="3"/>
+    <circle cx="226" cy="190" r="7" fill="#D21E47"/>
+    <path d="M60 90l30-20 26 12M190 80h70M190 100h44M336 70h70M336 92h50" stroke="#1334A6" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+  </g>
+  <!-- UCC financing statement -->
+  <g transform="translate(150 150) rotate(-7)">
+    <rect width="420" height="540" rx="14" fill="#fff" stroke="#C2CBE4" stroke-width="2"/>
+    <rect x="28" y="28" width="364" height="44" rx="8" fill="#1334A6"/>
+    <rect x="44" y="44" width="120" height="12" rx="6" fill="#fff" opacity=".85"/>
+    <rect x="300" y="40" width="76" height="20" rx="10" fill="#D21E47"/>
+    <g stroke="#D9DFEF" stroke-width="2">
+      <rect x="28" y="96" width="364" height="70" rx="6"/>
+      <rect x="28" y="182" width="176" height="70" rx="6"/>
+      <rect x="216" y="182" width="176" height="70" rx="6"/>
+      <rect x="28" y="268" width="364" height="110" rx="6"/>
+    </g>
+    <g fill="#C2CBE4">
+      <rect x="44" y="110" width="90" height="9" rx="4.5"/><rect x="44" y="134" width="250" height="14" rx="7" fill="#1E295A"/>
+      <rect x="44" y="196" width="70" height="9" rx="4.5"/><rect x="44" y="220" width="130" height="12" rx="6" fill="#34428A"/>
+      <rect x="232" y="196" width="70" height="9" rx="4.5"/><rect x="232" y="220" width="120" height="12" rx="6" fill="#34428A"/>
+      <rect x="44" y="282" width="110" height="9" rx="4.5"/>
+      <rect x="44" y="304" width="320" height="9" rx="4.5"/><rect x="44" y="324" width="290" height="9" rx="4.5"/><rect x="44" y="344" width="230" height="9" rx="4.5"/>
+    </g>
+    <g stroke="#1334A6" stroke-width="2.5">
+      <rect x="32" y="404" width="20" height="20" rx="4"/><rect x="32" y="440" width="20" height="20" rx="4"/>
+    </g>
+    <path d="M36 414l5 5 9-11" stroke="#D21E47" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="66" y="409" width="150" height="10" rx="5" fill="#C2CBE4"/><rect x="66" y="445" width="120" height="10" rx="5" fill="#C2CBE4"/>
+    <path d="M250 486c18-26 30 8 46-12s22-6 34-2 18-12 40-6" stroke="#1E295A" stroke-width="3" stroke-linecap="round"/>
+    <path d="M244 500h150" stroke="#C2CBE4" stroke-width="2"/>
+  </g>
+  <!-- certificate with seal -->
+  <g transform="translate(700 440) rotate(-3)">
+    <rect width="400" height="300" rx="14" fill="#fff" stroke="#C2CBE4" stroke-width="2"/>
+    <rect x="16" y="16" width="368" height="268" rx="8" stroke="#1334A6" stroke-width="2" stroke-dasharray="2 6"/>
+    <rect x="110" y="44" width="180" height="16" rx="8" fill="#1E295A"/>
+    <rect x="80" y="80" width="240" height="9" rx="4.5" fill="#C2CBE4"/><rect x="100" y="100" width="200" height="9" rx="4.5" fill="#C2CBE4"/>
+    <rect x="60" y="140" width="280" height="9" rx="4.5" fill="#D9DFEF"/><rect x="60" y="160" width="250" height="9" rx="4.5" fill="#D9DFEF"/>
+    <circle cx="300" cy="226" r="40" fill="#1334A6"/><circle cx="300" cy="226" r="30" stroke="#fff" stroke-width="2" stroke-dasharray="3 4"/>
+    <path d="M300 208l5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1z" fill="#fff"/>
+    <path d="M282 262l-10 30 16-8 8 14 6-30M318 262l10 30-16-8-8 14-6-30" fill="#D21E47"/>
+    <path d="M60 236h140" stroke="#1E295A" stroke-width="2"/>
+  </g>
+  <!-- court docket list -->
+  <g transform="translate(60 590) rotate(4)">
+    <rect width="380" height="250" rx="14" fill="#fff" stroke="#C2CBE4" stroke-width="2"/>
+    <rect x="24" y="24" width="140" height="14" rx="7" fill="#1E295A"/>
+    <g fill="#D9DFEF"><rect x="24" y="64" width="332" height="30" rx="6"/><rect x="24" y="148" width="332" height="30" rx="6"/></g>
+    <rect x="24" y="106" width="332" height="30" rx="6" fill="#FBE4EA" stroke="#D21E47" stroke-width="2"/>
+    <g fill="#1334A6"><circle cx="42" cy="79" r="6"/><circle cx="42" cy="163" r="6"/></g><circle cx="42" cy="121" r="6" fill="#D21E47"/>
+    <g fill="#8C98C4"><rect x="60" y="74" width="150" height="9" rx="4.5"/><rect x="60" y="116" width="190" height="9" rx="4.5"/><rect x="60" y="158" width="120" height="9" rx="4.5"/></g>
+    <rect x="24" y="200" width="200" height="9" rx="4.5" fill="#D9DFEF"/>
+  </g>
+  <!-- stamp + clip -->
+  <g transform="translate(560 640) rotate(-14)">
+    <circle r="58" stroke="#D21E47" stroke-width="5"/><circle r="46" stroke="#D21E47" stroke-width="2"/>
+    <path d="M-22 2l14 14 30-32" stroke="#D21E47" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <path d="M520 128v-40a18 18 0 0 1 36 0v70a10 10 0 0 1-20 0V98" stroke="#1E295A" stroke-width="5" stroke-linecap="round" transform="rotate(-10 540 120)"/>
+</svg>

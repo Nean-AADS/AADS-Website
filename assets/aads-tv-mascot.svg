@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="The AADS mascot recording an AADS TV podcast">
+  <!-- studio -->
+  <rect width="640" height="360" fill="#EEF1F8"/>
+  <rect x="0" y="250" width="640" height="110" fill="#E1E6F2"/>
+  <!-- acoustic panels -->
+  <g fill="#DDE3F1"><rect x="34" y="40" width="70" height="110" rx="10"/><rect x="112" y="40" width="70" height="110" rx="10"/><rect x="460" y="40" width="70" height="110" rx="10"/><rect x="538" y="40" width="70" height="110" rx="10"/></g>
+  <g stroke="#CBD3E6" stroke-width="3" stroke-linecap="round"><path d="M50 62v66M66 62v66M82 62v66M128 62v66M144 62v66M160 62v66M476 62v66M492 62v66M508 62v66M554 62v66M570 62v66M586 62v66"/></g>
+  <!-- on air sign -->
+  <g transform="translate(486 168)"><rect width="116" height="38" rx="10" fill="#1E295A"/><circle cx="22" cy="19" r="7" fill="#D21E47"/><text x="38" y="26" font-family="Plus Jakarta Sans,Arial,sans-serif" font-weight="800" font-size="17" fill="#FFFFFF" letter-spacing="2">ON AIR</text></g>
+  <!-- sound waves -->
+  <g fill="#1334A6" opacity=".22" transform="translate(30 30)"><rect x="486" y="196" width="8" height="30" rx="4"/><rect x="500" y="184" width="8" height="54" rx="4"/><rect x="514" y="172" width="8" height="78" rx="4"/><rect x="528" y="188" width="8" height="46" rx="4"/><rect x="542" y="198" width="8" height="26" rx="4"/></g>
+  <g fill="#1334A6" opacity=".22"><rect x="92" y="196" width="8" height="30" rx="4"/><rect x="106" y="180" width="8" height="62" rx="4"/><rect x="120" y="190" width="8" height="42" rx="4"/></g>
+  <!-- chair back -->
+  <rect x="238" y="150" width="164" height="130" rx="30" fill="#34428A"/>
+  <!-- mascot body: polo shirt -->
+  <path d="M250 300c0-48 30-78 70-78s70 30 70 78z" fill="#1E295A"/>
+  <path d="M300 224l20 24 20-24" fill="#FFFFFF" stroke="#1E295A" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M320 248v26" stroke="#FFFFFF" stroke-width="3"/><circle cx="320" cy="258" r="2.6" fill="#FFFFFF"/><circle cx="320" cy="268" r="2.6" fill="#FFFFFF"/>
+  <text x="352" y="276" font-family="Plus Jakarta Sans,Arial,sans-serif" font-weight="800" font-size="11" fill="#FFFFFF">AADS</text>
+  <!-- the paper head (sheet with folded corner) -->
+  <g transform="rotate(-4 320 150)">
+    <path d="M262 90h96l22 22v104a10 10 0 0 1-10 10H262a10 10 0 0 1-10-10V100a10 10 0 0 1 10-10z" fill="#FFFDF7" stroke="#1E295A" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M358 90v14a8 8 0 0 0 8 8h14" fill="#E9EDF6" stroke="#1E295A" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M272 206h40M272 194h26" stroke="#D5DCEC" stroke-width="4" stroke-linecap="round"/>
+    <!-- face -->
+    <ellipse cx="300" cy="160" rx="8" ry="11" fill="#1E295A"/><ellipse cx="342" cy="160" rx="8" ry="11" fill="#1E295A"/>
+    <circle cx="302.5" cy="156" r="3" fill="#FFFFFF"/><circle cx="344.5" cy="156" r="3" fill="#FFFFFF"/>
+    <ellipse cx="286" cy="182" rx="10" ry="6" fill="#F4A7B5" opacity=".8"/><ellipse cx="358" cy="182" rx="10" ry="6" fill="#F4A7B5" opacity=".8"/>
+    <path d="M304 180c4 16 30 16 34 0z" fill="#1E295A"/><path d="M310 188c6 6 16 6 22 0" fill="#E86A86"/>
+    <!-- cap -->
+    <path d="M254 112c4-38 34-58 66-58s62 20 66 58z" fill="#1E295A"/>
+    <path d="M246 112h150c8 0 10 12 2 14l-60 6H252c-10 0-14-20-6-20z" fill="#26336E"/>
+    <circle cx="320" cy="56" r="6" fill="#26336E"/>
+    <g transform="translate(286 74)"><rect width="22" height="15" rx="2" fill="#FFFFFF"/><rect width="10" height="8" fill="#1334A6"/><path d="M10 3h12M10 6h12M0 10h22M0 13h22" stroke="#D21E47" stroke-width="1.6"/></g>
+    <text x="312" y="88" font-family="Plus Jakarta Sans,Arial,sans-serif" font-weight="800" font-size="16" fill="#FFFFFF">AADS</text>
+    <!-- headphones -->
+    <path d="M250 150c-6-64 34-98 70-98s76 34 70 98" fill="none" stroke="#2E3656" stroke-width="9" stroke-linecap="round"/>
+    <rect x="236" y="138" width="24" height="44" rx="10" fill="#2E3656"/><rect x="380" y="138" width="24" height="44" rx="10" fill="#2E3656"/>
+    <rect x="241" y="146" width="10" height="28" rx="5" fill="#1334A6"/><rect x="389" y="146" width="10" height="28" rx="5" fill="#1334A6"/>
+  </g>
+  <!-- waving arm -->
+  <path d="M384 262c26-10 44-34 52-62" fill="none" stroke="#1E295A" stroke-width="26" stroke-linecap="round"/>
+  <g transform="translate(442 186) rotate(14)"><ellipse rx="19" ry="23" fill="#FFFDF7" stroke="#1E295A" stroke-width="4"/><path d="M-18 4c-12-2-16-12-10-16 4-2 9 1 11 5" fill="#FFFDF7" stroke="#1E295A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M-6-20v10M4-21v10M13-16v8" stroke="#1E295A" stroke-width="3" stroke-linecap="round"/></g>
+  <!-- other arm resting -->
+  <path d="M262 266c-20 4-34 16-38 30" fill="none" stroke="#1E295A" stroke-width="26" stroke-linecap="round"/>
+  <!-- desk -->
+  <rect x="96" y="290" width="448" height="22" rx="8" fill="#1E295A"/>
+  <rect x="112" y="312" width="416" height="48" fill="#26336E"/>
+  <rect x="290" y="322" width="60" height="22" rx="4" fill="#FFFFFF" opacity=".9"/><text x="296" y="338" font-family="Plus Jakarta Sans,Arial,sans-serif" font-weight="800" font-size="13" fill="#1E295A">AADS</text>
+  <!-- hand on desk -->
+  <ellipse cx="220" cy="292" rx="18" ry="11" fill="#FFFDF7" stroke="#1E295A" stroke-width="4"/>
+  <!-- mug -->
+  <g transform="translate(150 252)"><rect width="34" height="40" rx="6" fill="#1334A6"/><path d="M34 10h8a8 8 0 0 1 0 16h-8" fill="none" stroke="#1334A6" stroke-width="6"/><text x="5" y="25" font-family="Plus Jakarta Sans,Arial,sans-serif" font-weight="800" font-size="9" fill="#FFFFFF">AADS</text></g>
+  <!-- microphone on a boom arm -->
+  <path d="M470 290V244l-30-40-22 4" fill="none" stroke="#2E3656" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="456" y="284" width="30" height="8" rx="3" fill="#2E3656"/>
+  <g transform="translate(404 214) rotate(-38)"><rect x="-17" y="-40" width="34" height="62" rx="17" fill="#2E3656"/><path d="M-17-24h34M-17-12h34M-17 0h34" stroke="#5D6584" stroke-width="2.4"/><rect x="-21" y="18" width="42" height="9" rx="4" fill="#1E295A"/></g>
+  <!-- papers on desk -->
+  <g transform="translate(410 270) rotate(6)"><rect width="74" height="22" rx="3" fill="#FFFFFF" stroke="#C3CCE3"/><path d="M8 8h44M8 15h30" stroke="#C3CCE3" stroke-width="3" stroke-linecap="round"/></g>
+</svg>
