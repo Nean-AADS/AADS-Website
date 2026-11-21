@@ -651,3 +651,12 @@ footer.dcf a.dcf-btn:not(#v){min-height:48px;padding:12px 26px!important;font-si
 .v-hist .v-hist-b:first-child:not(#v){border-radius:999px 0 0 999px}
 .v-hist .v-hist-b:hover:not(:disabled):not(#v){background:var(--v-navy);color:#fff}
 .v-hist .v-hist-b:disabled:not(#v){opacity:.38;cursor:default}
+
+/* Search / File / Monitor boxes on service pages: no step numbers */
+.sv-paths .sv-path-n{display:none!important}
+nav.sv-paths>a:not(#v){padding:20px 24px!important;justify-content:center}
+/* hero monitor, bigger again (21 Nov, Nean): width-led, the stand runs off the bottom of the card */
+@media (min-width:900px){
+.hm-card{grid-template-columns:minmax(0,.42fr) minmax(0,1.9fr)!important;overflow:hidden}
+.mn{--mw:clamp(320px,min(66vw,calc((min(100svh,1100px) - 190px)*1.45)),1280px)!important;margin-bottom:calc(var(--mw)*-.14)!important}
+}

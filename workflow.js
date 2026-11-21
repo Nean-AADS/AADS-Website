@@ -3,7 +3,7 @@
    21 Nov 2026): the steps play on their own, slowly, and the round step buttons under
    the picture (each carrying its step name) move between them. The 3D deck is bigger.
    Copy is the page's own, moved unchanged; the deck is decorative.
-   Phones / reduced motion get a vertical flow. */
+   Phones get a vertical flow; reduced motion keeps the graphic with instant step changes. */
 (()=>{
 const doc=document;
 const sec=doc.querySelector('#ourProcess');if(!sec)return;
@@ -54,7 +54,7 @@ const ticks=chapters.map((c,i)=>{const b=doc.createElement('button');b.type='but
   b.innerHTML=`<span class="wf-dot" aria-hidden="true">${i?pad(i):'—'}</span><span class="wf-name">${i?names[i-1]:'Overview'}</span>`;
   nav.append(b);b.addEventListener('click',()=>{user=true;jump(i)});return b});
 
-const flat=()=>reduce||matchMedia('(max-width:899px)').matches;
+const flat=()=>matchMedia('(max-width:899px)').matches; /* reduced motion keeps the graphic; steps just change without the glide */
 let cur=0,target=0,raf=0,shown=-1,user=false,timer=null;
 const layout=()=>{const f=flat();wf.classList.toggle('wf-flat',f);wf.style.height='';
   if(f){chapters.forEach(c=>{c.style.opacity='';c.style.transform='';c.style.visibility=''});cards.forEach(c=>c.style.transform='')}};
@@ -62,7 +62,7 @@ const jump=i=>{if(flat()){(chapters[i].querySelector('h3,h2')||chapters[i]).scro
   target=i;kick()};
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 const frame=()=>{raf=0;if(wf.classList.contains('wf-flat'))return;
-  cur+=(target-cur)*.07;if(Math.abs(target-cur)<.001)cur=target;
+  cur+=(target-cur)*.07;if(reduce||Math.abs(target-cur)<.001)cur=target;
   const c=cur;
   chapters.forEach((ch,k)=>{const d=k-c,o=clamp(1-Math.abs(d)*1.8,0,1);ch.style.opacity=o.toFixed(3);
     ch.style.transform=`translate3d(0,${(d*40).toFixed(1)}px,0)`;ch.style.visibility=o<.01?'hidden':'visible';ch.style.pointerEvents=o>.5?'auto':'none'});
