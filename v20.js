@@ -1,6 +1,6 @@
 /* AADS redesign v20, site-wide layer (21 Nov 2026). Loads last on every page.
    Layout only for founder-approved text: existing words are moved or regrouped, not rewritten.
-   - floating Back / Forward buttons (every page)
+   - Back / Forward buttons at the top of inside pages (not floating)
    - inside-page hero pictures (no magnifying glass): each guide has its own picture, same size everywhere
    - guide pages use the service-page building blocks: a dashboard summary, a node workflow and a checklist
    - "Book an appointment" in the request pop-up
@@ -12,22 +12,21 @@ const hide=e=>{e.setAttribute('aria-hidden','true');return e};
 const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const svg=p=>`<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${p}"/></svg>`;
 
-/* ---------- 1. Floating Back / Forward ---------- */
+/* ---------- 1. Back / Forward: a normal (not floating) control at the top of inside pages ---------- */
 (()=>{
+  const main=d.querySelector('main');if(!main||page==='index')return;
   const internal=(()=>{try{return d.referrer&&new URL(d.referrer).origin===location.origin}catch{return false}})();
-  const bar=el('nav','v-hist');bar.setAttribute('aria-label','Page history');
+  const bar=el('div','v-hist');bar.setAttribute('role','navigation');bar.setAttribute('aria-label','Page history');
   const back=el('button','v-hist-b',svg('M19 12H5M11 18l-6-6 6-6')+'<span>Back</span>');back.type='button';
   const fwd=el('button','v-hist-b v-hist-f','<span>Forward</span>'+svg('M5 12h14M13 6l6 6-6 6'));fwd.type='button';
   back.addEventListener('click',()=>{if(internal&&history.length>1)history.back();else location.href='./index.html'});
   fwd.addEventListener('click',()=>history.forward());
   const nav=window.navigation;
-  const sync=()=>{if(nav&&'canGoForward' in nav){fwd.disabled=!nav.canGoForward;fwd.setAttribute('aria-disabled',String(!nav.canGoForward))}
-    if(page==='index'&&!internal){back.disabled=true}};
+  const sync=()=>{if(nav&&'canGoForward' in nav){fwd.disabled=!nav.canGoForward;fwd.setAttribute('aria-disabled',String(!nav.canGoForward))}};
   sync();nav&&nav.addEventListener&&nav.addEventListener('currententrychange',sync);
-  bar.append(back,fwd);d.body.append(bar);
-  let shown=false;const upd=()=>{const s=scrollY>420;if(s!==shown){shown=s;bar.classList.toggle('show',s)}};addEventListener('scroll',upd,{passive:true});upd();
-  const foot=d.querySelector('body>footer');foot&&new IntersectionObserver(([e])=>bar.classList.toggle('hide',e.isIntersecting),{rootMargin:'0px 0px -80px 0px'}).observe(foot);
-  d.addEventListener('keydown',e=>{if(e.key==='Escape')return});
+  bar.append(back,fwd);
+  d.querySelectorAll('.back-nav').forEach(x=>x.remove());
+  const crumbs=main.querySelector('.breadcrumbs');crumbs?crumbs.before(bar):main.prepend(bar);
 })();
 
 /* ---------- 2. Inside-page hero pictures ---------- */
