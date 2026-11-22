@@ -660,3 +660,6 @@ nav.sv-paths>a:not(#v){padding:20px 24px!important;justify-content:center}
 .hm-card{grid-template-columns:minmax(0,.42fr) minmax(0,1.9fr)!important;overflow:hidden}
 .mn{--mw:clamp(320px,min(66vw,calc((min(100svh,1100px) - 190px)*1.45)),1280px)!important;margin-bottom:calc(var(--mw)*-.14)!important}
 }
+
+/* back/forward never stretches as a grid or flex item (Place an Order layout) */
+.v-hist:not(#v){grid-column:1/-1;justify-self:start;align-self:start;flex:0 0 auto}
