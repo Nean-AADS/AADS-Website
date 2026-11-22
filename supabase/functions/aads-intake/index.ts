@@ -29,6 +29,8 @@ const SERVICES = new Set([
   "real-estate-package", "title-municipal-research", "corporate-documents-filings",
   "registered-agent-services", "court-litigation-bankruptcy", "ofac-sanctions-searches",
   "apostille-legalization", "other",
+  // Added 2026-11-22 for the Discuss Your Request page (separate title, municipal and court categories).
+  "title-research", "municipal-lien-search", "civil-litigation", "bankruptcy-research", "criminal-research",
 ]);
 const SOURCES = new Set(["", "Search engine", "Referral", "LinkedIn", "Email", "Other"]);
 
