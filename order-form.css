@@ -91,3 +91,4 @@ details .grid{margin-top:18px}
 .criminal-remove{font:inherit;font-size:13px;font-weight:600;color:#1334A6;border:1px solid #BCC9E1;border-radius:5px;background:#fff;min-height:44px;padding:8px 12px;margin-top:12px;cursor:pointer}
 @media(max-width:720px){.criminal-subject .grid{grid-template-columns:1fr}.criminal-subjects{padding:16px 12px}}
 /* CRIMINAL INDIVIDUAL DETAILS END */
+#order-form .check-line{display:flex;align-items:flex-start;gap:10px;margin:18px 0}#order-form .check-line input{width:18px;height:18px;min-height:18px;flex:0 0 18px;margin:2px 0}#order-form .check-line{line-height:1.6}.receipt-box .button{margin:10px 10px 10px 0}.request-layout .checks{display:grid;grid-template-columns:1fr 1fr;gap:12px}.request-layout .checks label{display:flex;gap:8px;align-items:flex-start}.request-layout .checks input{width:18px;min-height:18px;flex:0 0 18px}@media(max-width:600px){.request-layout .checks{grid-template-columns:1fr}}

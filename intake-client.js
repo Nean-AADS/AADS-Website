@@ -3,6 +3,17 @@
   // Errors carry .field when the server rejected one specific field, so the form can point to it.
   function fail(message,field){const e=new Error(message);if(field)e.field=field;return e;}
   async function submit(endpoint,payload){
+    /* Al's update: the new service choices (title vs municipal, civil / bankruptcy / criminal) and municipal items
+       travel inside the text the intake already stores, under the closest existing service code. */
+    const SPLIT={'title-research':['title-municipal-research','Title Searches'],'municipal-lien-search':['title-municipal-research','Municipal Lien Searches'],
+      'civil-litigation':['court-litigation-bankruptcy','Civil Litigation Searches'],'bankruptcy-research':['court-litigation-bankruptcy','Bankruptcy Searches'],
+      'criminal-research':['court-litigation-bankruptcy','Criminal Court Searches']};
+    try{const kind=payload.get('request_kind'),textField=kind==='order'?'instructions':'message',extra=[];
+      const sv=payload.get('service');if(SPLIT[sv]){payload.set('service',SPLIT[sv][0]);extra.push('Service selected: '+SPLIT[sv][1])}
+      const items=payload.getAll('municipal-items');if(items.length){extra.push('Municipal records requested: '+items.join(', '))}payload.delete('municipal-items');
+      if(payload.get('confirmed')){extra.push('Authorized to provide these instructions and documents: yes')}payload.delete('confirmed');
+      if(extra.length){const t=String(payload.get(textField)||'');payload.set(textField,extra.join('\n')+(t?'\n\n'+t:''))}
+    }catch{}
     let url;try{url=new URL(endpoint)}catch{throw fail('Receiving service is not configured.')}
     if(url.protocol!=='https:'||url.username||url.password)throw fail('Receiving service is not configured.');
     const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),45000);
