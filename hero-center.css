@@ -1,0 +1,121 @@
+/* Hero slide 2, centered big monitor (preview, 23 Nov). Brutalist structure in the site's own colours:
+   flat navy slab, hard edges, solid offset shadow, thick rules, boxed copy. No gradients, no new words. */
+@media (min-width:900px){
+  .hm-s2:not(#v){padding:14px clamp(14px,2vw,32px) 88px!important}
+  .hm-card:not(#v){display:grid!important;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr)!important;
+    grid-template-areas:"h p" "dev dev";gap:0 clamp(28px,4vw,72px)!important;align-items:end!important;
+    max-width:1480px!important;padding:clamp(30px,3vw,48px) clamp(28px,3.4vw,56px) 0!important;
+    border-radius:10px!important;border:2px solid #0D1120;box-shadow:14px 14px 0 var(--v-royal)!important;overflow:hidden}
+  .hm-card .hm-left:not(#v){display:contents}
+  .hm-card .hm-left h2:not(#v){grid-area:h;position:relative;max-width:none!important;padding-top:30px;
+    font-size:clamp(38px,4vw,68px)!important;line-height:.98!important;letter-spacing:-.045em!important;font-weight:800!important;
+    opacity:0;translate:0 24px;transition:opacity .9s ease .2s,translate 1.1s var(--v-ease) .2s}
+  .hm-card .hm-left h2::before{content:"";position:absolute;left:0;top:0;width:44px;height:10px;background:var(--v-royal)}
+  .hm-card .hm-left p:not(#v){grid-area:p;margin:0!important;max-width:none!important;padding:18px 20px!important;
+    border:2px solid #fff;border-radius:0;box-shadow:8px 8px 0 var(--v-royal);
+    font-size:clamp(15px,1.02vw,17px)!important;line-height:1.55!important;
+    opacity:0;translate:0 24px;transition:opacity .9s ease .35s,translate 1.1s var(--v-ease) .35s}
+  .hm-s2.hk-play .hm-card .hm-left h2:not(#v),.hm-s2.hk-play .hm-card .hm-left p:not(#v){opacity:1;translate:0 0}
+  .hm-card .hm-device:not(#v){grid-area:dev;justify-content:center!important;margin-top:clamp(24px,2.6vw,40px);
+    padding-top:clamp(26px,2.8vw,44px);border-top:2px solid rgba(255,255,255,.22)}
+  .hm-card .mn:not(#v){--mw:clamp(760px,min(84vw,calc((100svh - 300px)*1.75)),1360px)!important;margin-bottom:calc(var(--mw)*-.075)!important}
+}
+@media (prefers-reduced-motion:reduce){.hm-card .hm-left h2,.hm-card .hm-left p{transition:none!important;opacity:1!important;translate:none!important}}
+
+/* 23 Nov: "since 2002" service shortcuts as small rounded pills with a chevron (Nean's screenshot); CTA buttons unchanged */
+.hm-cta .service-shortcuts:not(#v){display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:10px 8px!important;max-width:900px!important;margin-left:auto!important;margin-right:auto!important}
+.home-light .hm-cta .service-shortcuts>a:not(#v),.hm-cta .service-shortcuts>a:not(#v){flex:0 0 auto!important;width:auto!important;height:38px!important;min-height:38px!important;display:inline-flex!important;align-items:center!important;gap:8px;padding:0 12px 0 15px!important;border-radius:999px!important;border:1px solid #D6DCEB!important;background:#fff!important;box-shadow:0 1px 2px rgba(20,28,64,.06)!important;font-size:14px!important;font-weight:600!important;line-height:1!important;white-space:nowrap!important;color:var(--v-navy)!important;-webkit-text-fill-color:var(--v-navy)!important}
+.hm-cta .service-shortcuts>a::after{content:"";width:7px;height:7px;margin-left:2px;border-right:1.6px solid #7D86A6;border-top:1.6px solid #7D86A6;transform:rotate(45deg);flex:none;transition:transform .2s ease,border-color .2s ease}
+.hm-cta .service-shortcuts>a:not(#v):hover{border-color:var(--v-navy)!important;background:#fff!important}
+.hm-cta .service-shortcuts>a:hover::after{border-color:var(--v-navy);transform:translateX(2px) rotate(45deg)}
+.hm-cta .service-shortcuts>a::before{display:none!important}
+@media (max-width:600px){.hm-cta .service-shortcuts>a:not(#v){height:36px!important;min-height:36px!important;font-size:13px!important;padding:0 10px 0 13px!important}}
+
+/* 23 Nov: tighter spacing between homepage sections */
+.home-light main>.section:not(#v),.hm-home main>.section:not(#v){padding-top:clamp(40px,4.2vw,60px)!important;padding-bottom:clamp(40px,4.2vw,60px)!important}
+.hm-home main>#ourProcess:not(#v){padding-top:0!important;padding-bottom:clamp(32px,3vw,44px)!important}
+.hm-home main>#contactUs:not(#v){padding-top:clamp(36px,3.6vw,52px)!important}
+.hm-cta .service-shortcuts>a:not(#v)::after{content:""!important;display:block!important;position:static!important;width:7px!important;height:7px!important;margin:0 0 0 2px!important;border:0!important;border-right:1.6px solid #7D86A6!important;border-top:1.6px solid #7D86A6!important;background:none!important;transform:rotate(45deg)!important;opacity:1!important;flex:none!important}
+.hm-cta .service-shortcuts>a:not(#v):hover::after{border-color:var(--v-navy)!important;transform:translateX(2px) rotate(45deg)!important}
+.hm-cta:not(#v){padding-top:clamp(40px,4vw,60px)!important;padding-bottom:clamp(36px,3.6vw,52px)!important}
+.hm-home #ourProcess .wf-stage:not(#v){padding-top:clamp(36px,3.4vw,48px)!important}
+.hm-home #ourProcess .wf .wf-nav:not(#v){padding-top:20px!important;padding-bottom:22px!important}
+.hm-home main>.section .section-intro:not(#v){margin-bottom:28px!important}
+.hm-home #experience-examples .al-draft:not(#v){margin-top:0!important;margin-bottom:20px!important}
+.hm-home #packages .package-grid+.small-note:not(#v){margin-top:24px!important}
+.hm-home #whyChooseUs .al-xp:not(#v){margin-top:20px!important}
+
+/* 23 Nov: the hero fits one screen on desktop (both slides). Same monitor and same design, sized from the
+   screen height: the hero is the screen minus the header, and the monitor takes whatever room the headline leaves. */
+@media (min-width:900px){
+  .home-light .blue-top.hm .hk:not(#v){min-height:0!important;height:max(560px,calc(100svh - var(--hm-hdr,85px)))!important}
+  .home-light .blue-top.hm .hk-track:not(#v){min-height:0;height:100%}
+  .hm-s1 h1:not(#v){font-size:clamp(54px,min(9.4vw,17svh),150px)!important}
+  .hm-s2:not(#v){padding:clamp(10px,1.4svh,16px) clamp(14px,2vw,32px) 84px!important}
+  .hm-card:not(#v){grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)!important;grid-template-rows:auto minmax(0,1fr)!important;
+    height:100%;min-height:0;padding:clamp(20px,3svh,44px) clamp(28px,3.4vw,56px) 0!important}
+  .hm-card .hm-left h2:not(#v){font-size:clamp(30px,min(3.5vw,5.6svh),64px)!important;padding-top:clamp(20px,3svh,30px)}
+  .hm-card .hm-left h2::before{height:clamp(7px,1svh,10px)}
+  .hm-card .hm-left p:not(#v){padding:clamp(12px,1.8svh,18px) 20px!important;font-size:clamp(14px,min(1.02vw,1.9svh),17px)!important;line-height:1.5!important}
+  .hm-card .hm-device:not(#v){container-type:size;min-height:0;align-self:stretch!important;align-items:flex-start!important;
+    margin-top:clamp(14px,2.2svh,32px)!important;padding-top:clamp(14px,2.6svh,36px)!important}
+  /* the head of the monitor fills the row, its stand runs off the bottom edge of the card as before */
+  .hm-card .mn:not(#v){--mw:min(100cqw,1360px,calc(100cqh / .68))!important;margin-bottom:0!important}
+}
+
+/* 23 Nov: phones, the monitor on slide 2 fits inside the navy card */
+@media (max-width:899px){
+  .hm-card .mn:not(#v){--mw:min(calc(100vw - 56px),620px)!important}
+  .hm-card .hm-left h2:not(#v){overflow-wrap:break-word}
+  .hm-card:not(#v){padding-bottom:22px!important}
+}
+
+/* 23 Nov (2): slide 2, the monitor is the centre of attention. The headline and paragraph sit lightly above it,
+   centred, and the monitor rises in and switches on (a line of light opens into the screen). Same words. */
+@media (min-width:900px){
+  .hm-card:not(#v){display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;
+    padding:clamp(16px,2.4svh,34px) clamp(20px,3vw,48px) 0!important}
+  .hm-card .hm-left h2:not(#v){max-width:none!important;text-align:center!important;text-wrap:balance;padding-top:clamp(14px,2svh,22px);
+    font-size:clamp(24px,min(2.4vw,4svh),46px)!important;line-height:1.04!important;letter-spacing:-.035em!important}
+  .hm-card .hm-left h2::before{left:50%;translate:-50% 0;width:40px;height:6px}
+  .hm-card .hm-left p:not(#v){max-width:92ch!important;text-align:center!important;margin:clamp(8px,1.2svh,14px) auto 0!important;padding:0!important;border:0!important;box-shadow:none!important;
+    color:#C9D2EE!important;-webkit-text-fill-color:#C9D2EE!important;font-size:clamp(14px,min(1vw,1.8svh),16.5px)!important;text-wrap:balance}
+  .hm-card .hm-device:not(#v){flex:1 1 auto;width:100%;min-height:0;container-type:size;justify-content:center!important;
+    margin-top:clamp(12px,2svh,26px)!important;padding-top:0!important;border-top:0!important}
+  .hm-card .mn:not(#v){--mw:min(100cqw,1400px,calc(100cqh / .675))!important;margin:0 auto!important}
+}
+/* power-on: the monitor rises, the screen is dark, a line of light opens into the picture, the LED and glow come on */
+.hm-s2.hk-play .mn{animation:mnRise 1.1s var(--v-ease) .25s both}
+.hm-s2.hk-play .mn-screen{animation:mnScr 1.25s linear 1s both}
+.hm-s2.hk-play .mn-ui{animation:mnUi 1.25s cubic-bezier(.2,.8,.2,1) 1s both}
+.hm-s2.hk-play .mn-glare{animation:mnFade .8s ease 1.9s both}
+.hm-s2.hk-play .mn-led{animation:mnLed .5s steps(2) .9s both}
+.hm-s2.hk-play .mn-head{animation:mnGlow 1.6s ease 1.1s both}
+@keyframes mnRise{from{opacity:0;transform:translateY(7%) scale(.9)}to{opacity:1;transform:none}}
+@keyframes mnScr{0%,55%{background:#05070F}100%{background:var(--v-paper)}}
+@keyframes mnUi{0%{clip-path:inset(49.6% 49% 49.6% 49%);filter:brightness(2.4) saturate(.3)}
+  24%{clip-path:inset(49.6% 0 49.6% 0);filter:brightness(2.4) saturate(.3)}
+  62%{clip-path:inset(0 0 0 0);filter:brightness(1.35) saturate(.8)}
+  100%{clip-path:inset(0 0 0 0);filter:none}}
+@keyframes mnFade{from{opacity:0}}
+@keyframes mnLed{from{background:#3A4157;box-shadow:none}}
+@keyframes mnGlow{from{box-shadow:0 0 0 1px #AEB7CC,0 40px 80px -30px rgba(5,10,35,.75),0 0 0 0 rgba(86,116,255,0)}
+  to{box-shadow:0 0 0 1px #AEB7CC,0 40px 80px -30px rgba(5,10,35,.75),0 0 110px 6px rgba(86,116,255,.38)}}
+@media (prefers-reduced-motion:reduce){.hm-s2 .mn,.hm-s2 .mn-screen,.hm-s2 .mn-ui,.hm-s2 .mn-glare,.hm-s2 .mn-led,.hm-s2 .mn-head{animation:none!important}}
+
+/* 23 Nov (3): lighter blue behind the monitor (flat colour, no gradient); white text stays above 8:1 contrast */
+.hm-card:not(#v){background:#2E4296!important}
+.hm-card::before{background:#5A72D6!important;opacity:.35!important}
+.hm-card .hm-left p:not(#v){color:#DCE3F7!important;-webkit-text-fill-color:#DCE3F7!important}
+.hm-card .hm-left h2::before{background:#fff!important}
+
+/* 23 Nov (4): white slab behind the monitor. The page is already off-white, so pure white with the navy
+   border and the royal offset shadow keeps the brutalist edge; text turns navy. */
+.hm-card:not(#v){background:#fff!important;color:var(--v-navy)!important}
+.hm-card::before{display:none!important}
+.hm-card .hm-left h2:not(#v){color:var(--v-navy)!important;-webkit-text-fill-color:var(--v-navy)!important}
+.hm-card .hm-left h2::before{background:var(--v-royal)!important}
+.hm-card .hm-left p:not(#v){color:#4A5478!important;-webkit-text-fill-color:#4A5478!important}
+@keyframes mnGlow{from{box-shadow:0 0 0 1px #AEB7CC,0 40px 80px -30px rgba(5,10,35,.45),0 0 0 0 rgba(40,70,200,0)}
+  to{box-shadow:0 0 0 1px #AEB7CC,0 40px 80px -30px rgba(5,10,35,.45),0 0 90px 4px rgba(40,70,200,.18)}}
+@media (max-width:899px){.hm-card:not(#v){border:2px solid #0D1120!important;box-shadow:7px 7px 0 var(--v-royal)!important;border-radius:10px!important;margin-right:7px!important}}

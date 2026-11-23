@@ -7,12 +7,14 @@ const TPL="<section class=\"section contact\" id=\"contactUs\"><!-- CONTACT PANE
 const d=document;
 let sec=d.getElementById('contactUs');
 /* homepage closing section without a form (Al's update) stays on the page; the pop-up uses the template */
-if(!sec||!sec.querySelector('#contact-form')){const t=d.createElement('template');t.innerHTML=TPL;sec=t.content.firstElementChild;if(d.getElementById('contactUs'))sec.id='contactDialog';}
+if(!sec||!sec.querySelector('#contact-form')){const t=d.createElement('template');t.innerHTML=TPL;sec=t.content.firstElementChild;if(d.getElementById('contactUs'))sec.id='contactDialog';
+  /* 23 Nov: on pages that have their own form (Place an Order), give the pop-up's fields their own ids so labels and error messages stay with the right box */
+  sec.querySelectorAll('[id]').forEach(e=>{if(e.id!=='contact-form'&&d.getElementById(e.id)){const n='cm-'+e.id;sec.querySelectorAll('label[for="'+e.id+'"]').forEach(l=>l.htmlFor=n);e.id=n}});}
 sec.classList.add('rq');
 const form=sec.querySelector('#contact-form');form&&form.classList.add('rq-form');
 /* pair Full Name + Company in one row (layout only) */
 if(form&&!form.querySelector('.rq-pair')){const pair=d.createElement('div');pair.className='form-row rq-pair';
-  ['full-name','company'].forEach(id=>{const l=form.querySelector('label[for="'+id+'"]'),f=form.querySelector('#'+id);if(l&&f){const w=d.createElement('div');l.before(pair);w.append(l,f);pair.append(w)}});}
+  ['full-name','company'].forEach(id=>{const l=form.querySelector('label[for="'+id+'"],label[for="cm-'+id+'"]'),f=form.querySelector('#'+id+',#cm-'+id);if(l&&f){const w=d.createElement('div');l.before(pair);w.append(l,f);pair.append(w)}});}
 const dlg=d.createElement('dialog');dlg.className='rq-modal';dlg.id='request-dialog';dlg.setAttribute('aria-labelledby','contact-title');
 const shell=d.createElement('div');shell.className='rq-shell';
 const close=d.createElement('button');close.type='button';close.className='rq-close';close.setAttribute('aria-label','Close');
@@ -32,7 +34,7 @@ if(panel){(intro||panel.firstElementChild).after(stage)}
 const ticket=stage.querySelector('.rq-ticket'),bar=stage.querySelector('.rq-t-bar i');
 function mirror(){
   if(!form)return;
-  stage.querySelectorAll('.rq-t-row').forEach(r=>{const f=form.querySelector('#'+r.dataset.for);let v='';
+  stage.querySelectorAll('.rq-t-row').forEach(r=>{const f=form.querySelector('#'+r.dataset.for+',#cm-'+r.dataset.for);let v='';
     if(f){v=f.tagName==='SELECT'?(f.value?f.options[f.selectedIndex].text:''):f.value.trim()}
     if(v.length>64)v=v.slice(0,64)+'…';r.querySelector('.rq-t-v').textContent=v;r.classList.toggle('on',!!v)});
   const req=[...form.querySelectorAll('[required]')];const ok=req.filter(f=>f.type==='checkbox'?f.checked:f.value.trim()&&f.checkValidity()).length;

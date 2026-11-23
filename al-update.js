@@ -40,6 +40,18 @@ if(ex&&!$('.al-stories',ex)){
         $$(':scope>p',det).forEach(p=>{p.classList.add('al-story-row');const b=$('strong',p);if(b)b.classList.add('al-story-k')})}
     });
   }
+  /* only the clicked card grows: equal resting height, smooth open and close */
+  if(grid){const cards=$$(':scope>.experience-example',grid),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const multi=()=>getComputedStyle(grid).gridTemplateColumns.split(' ').length>1;
+    const anyOpen=()=>cards.some(c=>{const t=$('details',c);return t&&t.open});
+    const level=()=>{grid.style.removeProperty('--al-story-h');if(anyOpen()||!multi())return;
+      grid.style.setProperty('--al-story-h',Math.max(...cards.map(c=>c.offsetHeight))+'px')};
+    level();addEventListener('load',level);addEventListener('resize',()=>{if(!anyOpen())level()});
+    /* the open/close height animation itself comes from site-motion.js; fade the revealed rows in */
+    cards.forEach(c=>{const det=$('details',c);if(!det)return;
+      det.addEventListener('toggle',()=>{if(!det.open||reduce)return;
+        [...det.children].filter(x=>x.tagName!=='SUMMARY').forEach((x,j)=>x.animate([{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:320,delay:60+j*60,easing:'ease-out',fill:'backwards'}))})});
+  }
   const note=$(':scope>.small-note',ex);if(note)note.classList.add('al-draft');
   const sample=$$(':scope>p.center',ex).pop();if(sample)sample.classList.add('al-sample');
 }
@@ -74,4 +86,8 @@ addEventListener('load',wfLater);
 /* ---------- Intelligence Center: task finder ---------- */
 const tf=$('#task-finder, .task-finder');
 if(tf&&!tf.classList.contains('al-tf')){tf.classList.add('al-tf')}
+/* ---------- pop-up form: bring the confirmation or error message into view (it sat below the fold) ---------- */
+const fst=$('#form-status');
+if(fst&&!fst.dataset.alWatch){fst.dataset.alWatch='1';
+  new MutationObserver(()=>{if(fst.textContent.trim())requestAnimationFrame(()=>fst.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}))}).observe(fst,{childList:true,characterData:true,subtree:true})}
 })();

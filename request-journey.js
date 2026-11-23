@@ -33,7 +33,7 @@ form.addEventListener('submit',async e=>{e.preventDefault();if(!form.reportValid
   const button=d.querySelector('#send-request');button.disabled=true;button.textContent='Sending…';
   const label=select.options[select.selectedIndex].text;
   const lines=['Request page: '+label,'Names, entity or property: '+val('subject'),'States, counties or courts: '+val('jurisdictions'),'Date needed: '+val('deadline'),val('clientReference')&&'Matter or client reference: '+val('clientReference'),'Searches, documents and instructions:\n'+val('details')].filter(Boolean).join('\n');
-  const fd=new FormData();fd.set('client_request_id',key);fd.set('form_started_at',String(started));fd.set('bot-field',val('website'));if(form.querySelector('#privacy-consent:checked'))fd.set('privacy-consent','yes');fd.set('service',select.value==='other'?'other':select.value);fd.set('email',val('email'));
+  const fd=new FormData();fd.set('client_request_id',key);fd.set('form_started_at',String(started));fd.set('bot-field',val('website'));if(form.querySelector('[name="privacy-consent"]:checked'))fd.set('privacy-consent','yes');fd.set('service',select.value==='other'?'other':select.value);fd.set('email',val('email'));
   for(const i of form.querySelectorAll('input[name="municipal-items"]:checked'))fd.append('municipal-items',i.value);
   if(form.querySelector('input[name="confirmed"]:checked'))fd.set('confirmed','yes');
   if(files.length){const parts=val('name').split(/\s+/);fd.set('request_kind','order');fd.set('first-name',parts.shift()||'');fd.set('last-name',parts.join(' ')||'-');fd.set('company',val('firm'));

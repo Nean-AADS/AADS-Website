@@ -10,7 +10,8 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const L=window.AADSLily;
 const pad=n=>String(n).padStart(2,'0');
 const SPRING='cubic-bezier(.16,1,.3,1)';
-let uid=0;
+let uid=0,DIR=1;
+const EASE='cubic-bezier(.22,1,.36,1)';
 
 /* 3D magnifier sweeping over the item's illustration; the lens magnifies it */
 const POSES=[
@@ -24,7 +25,8 @@ function mag(visual,orb){
   orb.append(base,zoom);
   const M=window.AADSMag;let R=null,canvas=null;
   if(M&&L&&L.glOK){canvas=doc.createElement('canvas');canvas.className='sc-canvas';canvas.setAttribute('aria-hidden','true');visual.append(canvas);R=M.create(canvas)}
-  if(!R||!R.ok){root(visual).classList.add('sc-nogl');return {set:(i,src)=>{base.src=src;zoom.removeAttribute('src')}}}
+  if(!R||!R.ok){root(visual).classList.add('sc-nogl');return {set:(i,src)=>{const was=base.getAttribute('src');base.src=src;zoom.removeAttribute('src');
+    if(was&&was!==src&&!reduce)base.animate([{opacity:.2,clipPath:DIR>0?'inset(100% 0 0 0)':'inset(0 0 100% 0)',transform:`translateY(${DIR*14}px) scale(1.03)`},{opacity:1,clipPath:'inset(0 0 0 0)',transform:'none'}],{duration:620,easing:EASE})}}}
   const ro=new ResizeObserver(()=>{R.resize();if(reduce)frame(performance.now(),0)});ro.observe(canvas);R.resize();
   const cur={...POSES[0]};let target=POSES[0],time=0,born=performance.now();
   const p={x:0,y:0,tx:0,ty:0,on:false};
@@ -40,7 +42,9 @@ function mag(visual,orb){
       zoom.style.clipPath='polygon('+ln.pts.map(q=>`${(c[0]+(q[0]-c[0])/ZOOM).toFixed(1)}px ${(c[1]+(q[1]-c[1])/ZOOM).toFixed(1)}px`).join(',')+')'}};
   if(reduce)requestAnimationFrame(()=>frame(performance.now(),0));else L.loop(visual,frame);
   return {set:(i,src)=>{target=POSES[i%POSES.length];if(base.getAttribute('src')!==src){base.src=src;zoom.src=src}
-    if(!reduce){born=performance.now()-500;base.animate([{opacity:0,transform:'scale(1.25) rotate(-6deg)',filter:'blur(12px)'},{opacity:1,transform:'none',filter:'blur(0)'}],{duration:700,easing:SPRING})}
+    if(!reduce){born=performance.now()-500;/* 23 Nov: the new picture wipes in from the side of travel and settles */
+      base.animate([{opacity:.2,clipPath:DIR>0?'inset(100% 0 0 0 round 18px)':'inset(0 0 100% 0 round 18px)',transform:`translateY(${DIR*14}px) scale(1.03)`},
+        {opacity:1,clipPath:'inset(0 0 0 0 round 18px)',transform:'none'}],{duration:620,easing:EASE})}
     else frame(performance.now(),0)}};
 }
 const root=v=>v.closest('.sc')||v;
@@ -81,18 +85,24 @@ function showcase(mount,items,opts={}){
     if(flip){const r1=visual.getBoundingClientRect(),p1=panels.getBoundingClientRect();
       visual.animate([{transform:`translateX(${r0.left-r1.left}px)`},{transform:'none'}],{duration:900,easing:SPRING});
       panels.animate([{transform:`translateX(${p0.left-p1.left}px)`},{transform:'none'}],{duration:900,easing:SPRING})}
+    const h0=(!reduce&&!instant&&prev>=0)?panels.offsetHeight:0;
     pans.forEach((p,k)=>{if(k===i){p.hidden=false}else if(k!==prev||reduce||instant||prev<0){p.hidden=('onbeforematch' in p)?'until-found':true}});
+    DIR=prev<0||i>prev?1:-1;
     if(prev>=0&&!reduce&&!instant){const old=pans[prev];old.classList.add('sc-leaving');
-      old.animate([{opacity:1,transform:'none',filter:'blur(0)'},{opacity:0,transform:'translateY(-10px)',filter:'blur(5px)'}],{duration:200,easing:'ease-in'}).finished.then(()=>{old.classList.remove('sc-leaving');if(cur!==prev)old.hidden=('onbeforematch' in old)?'until-found':true});}
+      const oa=old.animate([{opacity:1,transform:'none'},{opacity:0,transform:`translateY(${-DIR*10}px)`}],{duration:200,easing:'cubic-bezier(.4,0,1,1)',fill:'forwards'});
+      oa.finished.then(()=>{old.classList.remove('sc-leaving');if(cur!==prev)old.hidden=('onbeforematch' in old)?'until-found':true;oa.cancel()},()=>{});}
     else if(prev>=0){pans[prev].hidden=('onbeforematch' in pans[prev])?'until-found':true}
     if(!reduce&&prev>=0&&!instant){const kids=[...(pans[i].firstElementChild||pans[i]).children].slice(0,8);
-      kids.forEach((k,j)=>k.animate([{opacity:0,transform:'translateY(20px)',filter:'blur(10px)'},{opacity:1,transform:'none',filter:'blur(0)'}],{duration:700,delay:120+j*80,easing:SPRING,fill:'backwards'}));
-      orb.animate([{transform:'scale(.92)'},{transform:'scale(1)'}],{duration:700,easing:'cubic-bezier(.34,1.56,.64,1)'})}
+      /* 23 Nov: each line of the panel rises in after the last, from the side the list moved */
+      kids.forEach((k,j)=>k.animate([{opacity:0,transform:`translateY(${DIR*16}px)`},{opacity:1,transform:'none'}],{duration:520,delay:120+j*55,easing:EASE,fill:'backwards'}));
+      if(h0){const h1=panels.offsetHeight;if(Math.abs(h1-h0)>2){panels.style.overflow='hidden';panels.animate([{height:h0+'px'},{height:h1+'px'}],{duration:480,easing:EASE}).finished.then(()=>{panels.style.overflow=''})}}}
     count.textContent=`${pad(i+1)} / ${pad(n)}`;big.textContent=pad(i+1);
     if(items[i].img)pic.set(i,items[i].img);moveSurface();
     if(!(vert&&wide())){const sl=tabs[i].offsetLeft-(sw.clientWidth-tabs[i].offsetWidth)/2;sw.scrollTo({left:sl,behavior:reduce||instant?'auto':'smooth'})}
   }
-  sw.addEventListener('click',e=>{const b=e.target.closest('.sc-tab');if(b)go(tabs.indexOf(b))});
+  sw.addEventListener('click',e=>{const b=e.target.closest('.sc-tab');if(!b)return;const k=tabs.indexOf(b),changed=k!==cur;go(k);
+    /* 23 Nov: on phones the panel sits under the list, so bring it into view after a tap */
+    if(changed&&vert&&!matchMedia('(min-width:761px)').matches){const top=panels.getBoundingClientRect().top;if(top>innerHeight*.6||top<0)scrollTo({top:scrollY+top-90,behavior:reduce?'auto':'smooth'})}});
   sw.addEventListener('keydown',e=>{const k={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[e.key];
     if(k){e.preventDefault();go((cur+k+n)%n,{focus:true})}else if(e.key==='Home'){e.preventDefault();go(0,{focus:true})}else if(e.key==='End'){e.preventDefault();go(n-1,{focus:true})}});
   new ResizeObserver(moveSurface).observe(sw);
