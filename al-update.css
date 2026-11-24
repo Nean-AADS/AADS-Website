@@ -276,3 +276,37 @@ details.al-sec>section.secondary-content:not(#v){padding-top:48px!important;padd
 .sc.sc-faq.sc-vert .sc-panel summary:not(#v){padding:16px 18px!important}
 @media (prefers-reduced-motion:reduce){.sc.sc-vert .sc-surface,.sc.sc-vert .sc-tab .sc-tab-l{transition:none!important}}
 @media (max-width:600px){#services .sc-panel .service-actions .button:not(#v),#services .sc-panel .service-actions .quiet-link:not(#v){padding:0 18px!important;font-size:15px!important;min-height:50px!important}}
+
+/* 24 Nov: no dotted/dashed box containers anywhere. Card grids lose the dashed frame and each card becomes the site's
+   normal box (white, thin solid border, rounded, soft shadow), like the services and FAQ boxes. */
+.knowledge-grid:not(#v),.deliverable-grid:not(#v),.expectation-grid:not(#v),.proof-grid:not(#v){border:0!important;background:none!important;border-radius:0!important;gap:16px!important}
+.knowledge-grid>*:not(#v),.deliverable-grid>*:not(#v),.expectation-grid>*:not(#v),.proof-grid>*:not(#v){
+  border:1px solid var(--v-line)!important;border-radius:var(--v-r)!important;background:#fff!important;
+  box-shadow:0 1px 2px rgba(20,28,64,.04),0 18px 40px -32px rgba(20,28,64,.35)!important;transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease!important}
+a.knowledge-card:not(#v):hover,.knowledge-grid>a:not(#v):hover{border-color:#B9C4E4!important;box-shadow:0 1px 2px rgba(20,28,64,.05),0 22px 44px -30px rgba(20,28,64,.45)!important}
+.knowledge-grid.sc-emptied:not(#v){display:none!important}
+.v-case:not(#v){border:1px solid var(--v-line)!important;background:#fff!important;box-shadow:0 1px 2px rgba(20,28,64,.04),0 18px 40px -32px rgba(20,28,64,.35)!important}
+.v-founder-ph:not(#v){border:1px solid var(--v-line)!important}
+.wf-quote:not(#v),.pf .pf-bar:not(#v){border-style:solid!important;border-color:var(--v-line)!important}
+#main-content.al-journey #attachments:not(#v){border-style:solid!important}
+.os-step .field input[type=file]:not(#v){border-style:solid!important}
+#experience-examples .experience-example details:not(#v),.gl-body .term-links:not(#v),main nav.glossary-alphabet.glossary-alphabet:not(#v){border-top-style:solid!important}
+
+/* 24 Nov: menu. AADS TV is a plain menu link like the others (its small live dot stays); Place an Order becomes a
+   button styled like Get in Touch. */
+.site-header #navigation a.nav-tv:not(#v){border:0!important;background:transparent!important;box-shadow:none!important;border-radius:10px!important;
+  padding:10px 12px!important;font-weight:500!important;display:inline-flex!important;align-items:center;gap:8px;justify-content:flex-start!important}
+.site-header #navigation a.nav-tv:not(#v):hover{background:#EEF2FA!important}
+.site-header #navigation a.nav-order:not(#v){display:inline-flex!important;align-items:center;justify-content:center;gap:10px;min-height:44px;
+  padding:10px 20px!important;border-radius:999px!important;border:1px solid var(--v-navy)!important;background:var(--v-navy)!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;font-weight:700!important;text-decoration:none!important;transition:background .25s ease,border-color .25s ease}
+.site-header #navigation a.nav-order::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--v-red)}
+.site-header #navigation a.nav-order:not(#v):hover{background:var(--v-navy-2)!important;border-color:var(--v-navy-2)!important}
+.site-header #navigation a.nav-order:focus-visible{outline:2px solid var(--v-royal);outline-offset:2px}
+@media (min-width:1100px){.site-header #navigation a.nav-order:not(#v){margin-left:6px}}
+@media (max-width:1099px){.site-header #navigation a.nav-tv:not(#v){padding:13px 14px!important;font-size:17px!important}.site-header #navigation a.nav-tv .nav-tv-live{order:2}}
+@media (min-width:1100px) and (max-width:1379px){
+  .site-header #navigation>a:not(.button):not(.nav-order):not(#v),.site-header #navigation .services-menu>summary:not(#v){padding-left:8px!important;padding-right:8px!important;font-size:14.5px!important}
+  .site-header #navigation a.nav-order:not(#v),.site-header #navigation a.nav-contact:not(#v){padding:9px 15px!important;font-size:14.5px!important;gap:8px}
+}
+.deliverable-note:not(#v){padding:12px 16px!important;border-radius:14px!important}
